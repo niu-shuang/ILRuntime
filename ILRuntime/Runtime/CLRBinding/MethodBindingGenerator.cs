@@ -186,7 +186,7 @@ namespace ILRuntime.Runtime.CLRBinding
                     p.ParameterType.AppendArgumentCode(sb, j, p.Name, valueTypeBinders, isMultiArr, hasByRef, true);
                     sb.AppendLine();
                 }
-                bool noUnbox = (type.Name.Contains("AsyncTaskMethodBuilder") || type.FullName.StartsWith("System.Runtime.CompilerServices.AsyncVoidMethodBuilder")) && i.Name == "Start";
+                bool noUnbox = (type.Name.Contains("AsyncTaskMethodBuilder") || type.Name.Contains("AsyncUniTaskMethodBuilder") || type.Name.Contains("AsyncUniTaskVoidMethodBuilder") || type.FullName.StartsWith("System.Runtime.CompilerServices.AsyncVoidMethodBuilder")) && i.Name == "Start";
 
                 if (!i.IsStatic)
                 {
